@@ -1,4 +1,4 @@
-package com.whale.nangua.timerecoder.qr.activity;
+package com.whale.nangua.timerecoder.aty;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

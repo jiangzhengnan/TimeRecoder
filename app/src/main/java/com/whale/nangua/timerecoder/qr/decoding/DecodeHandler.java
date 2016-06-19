@@ -29,7 +29,7 @@ import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 import com.whale.nangua.timerecoder.R;
-import com.whale.nangua.timerecoder.qr.activity.CaptureActivity;
+import com.whale.nangua.timerecoder.aty.CaptureActivity;
 import com.whale.nangua.timerecoder.qr.camera.CameraManager;
 import com.whale.nangua.timerecoder.qr.camera.PlanarYUVLuminanceSource;
 

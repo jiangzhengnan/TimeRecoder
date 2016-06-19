@@ -28,7 +28,7 @@ import android.util.Log;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.whale.nangua.timerecoder.R;
-import com.whale.nangua.timerecoder.qr.activity.CaptureActivity;
+import com.whale.nangua.timerecoder.aty.CaptureActivity;
 import com.whale.nangua.timerecoder.qr.camera.CameraManager;
 import com.whale.nangua.timerecoder.qr.view.ViewfinderResultPointCallback;
 

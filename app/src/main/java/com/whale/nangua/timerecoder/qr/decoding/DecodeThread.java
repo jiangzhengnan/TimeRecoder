@@ -22,7 +22,7 @@ import android.os.Looper;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPointCallback;
-import com.whale.nangua.timerecoder.qr.activity.CaptureActivity;
+import com.whale.nangua.timerecoder.aty.CaptureActivity;
 
 import java.util.Hashtable;
 import java.util.Vector;

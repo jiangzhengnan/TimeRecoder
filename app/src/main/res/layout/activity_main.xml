@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.whale.nangua.timerecoder.MainActivity">
+    tools:context=".aty.QrAty">
 
     <Button
         android:id="@+id/textbtn"

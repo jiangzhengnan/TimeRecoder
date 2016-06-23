@@ -14,10 +14,13 @@ import com.whale.nangua.timerecoder.R;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class QrAty extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     Button btn;
     TextView tv;
     @Override
@@ -30,13 +33,12 @@ public class QrAty extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(QrAty.this, CaptureActivity.class);
+                Intent i = new Intent(MainActivity.this, CaptureActivity.class);
                 startActivityForResult(i,1);
             }
         });
-
-
     }
+//
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         String result = data.getStringExtra("result");
@@ -47,7 +49,7 @@ public class QrAty extends AppCompatActivity {
             public void run() {
                 try {
                     URL url = new URL(path);
-//
+
                     //获得HTTP连接
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
@@ -71,7 +73,7 @@ public class QrAty extends AppCompatActivity {
                             @Override
                             public void run() {
                                 tv.setText(text);
-                                Toast.makeText(QrAty.this,text,Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this,text,Toast.LENGTH_LONG).show();
                             }
                         });
                     }

@@ -9,12 +9,24 @@
 
     <Button
         android:id="@+id/textbtn"
-        android:text="开始扫描"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/resulttv"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="开始扫描"/>
+
+    <ScrollView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        >
+
+        <TextView
+            android:id="@+id/resulttv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scrollbars="vertical"
+            android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+
+            android:textColor="@android:color/black"
+
+            ></TextView>
+    </ScrollView>
 </LinearLayout>

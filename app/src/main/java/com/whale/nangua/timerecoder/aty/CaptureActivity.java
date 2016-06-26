@@ -132,9 +132,8 @@ public class CaptureActivity extends Activity implements Callback {
         initBeepSound();
         vibrate = true;
 
-        // quit the scan view
         cancelScanButton.setOnClickListener(new OnClickListener() {
-//aaa
+
             @Override
             public void onClick(View v) {
                 CaptureActivity.this.finish();

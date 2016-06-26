@@ -13,13 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".aty.QrAty">
+        </activity>
+        <activity android:name=".aty.CaptureActivity"></activity>
+        <activity android:name=".aty.MainAty">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".aty.CaptureActivity"></activity>
     </application>
 
 </manifest>

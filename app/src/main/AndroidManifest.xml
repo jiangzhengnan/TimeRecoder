@@ -16,6 +16,10 @@
         </activity>
         <activity android:name=".aty.CaptureActivity"></activity>
         <activity android:name=".aty.MainAty">
+
+        </activity>
+
+        <activity android:name=".aty.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

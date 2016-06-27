@@ -40,6 +40,7 @@ public class QrAty extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         String result = data.getStringExtra("result");
+        Log.d("whaleaa",result);
         final String path = "https://api.douban.com/v2/book/isbn/:" + result;
         tv.setText(path);
         new Thread(new Runnable() {

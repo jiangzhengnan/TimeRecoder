@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--选项-->
+    <group
+        android:id="@+id/group_items"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_a"
+            android:checked="true"
+            android:icon="@drawable/ic_favorite_outline_24dp"
+            android:title="a"
+            />
+        <item
+            android:id="@+id/nav_b"
+            android:icon="@drawable/ic_alarm_on_24dp"
+            android:title="a"
+            />
+        <item
+            android:id="@+id/nav_c"
+            android:icon="@drawable/ic_android_24dp"
+            android:title="a"
+            />
+        <item
+            android:id="@+id/nav_d"
+            android:icon="@drawable/ic_battery_30_24dp"
+            android:title="a"
+            />
+
+    </group>
+    <!--设置-->
+    <item
+        android:title="其他"
+        >
+        <menu>
+            <item
+                android:id="@+id/action_about"
+                android:icon="@drawable/ic_android_24dp"
+                android:title="关于"></item>
+            <item
+                android:id="@+id/action_setting"
+                android:icon="@drawable/ic_android_24dp"
+                android:title="设置"></item>
+        </menu>
+    </item>
+</menu>

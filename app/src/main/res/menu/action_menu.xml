@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/refresh_item"
-        android:icon="@drawable/ic_replay_24dp"
+        android:icon="@drawable/ic_reflash_24dp"
         android:title="refresh_item"
         app:showAsAction="always" />
 

@@ -16,15 +16,15 @@
         </activity>
         <activity android:name=".aty.CaptureActivity"></activity>
         <activity android:name=".aty.MainAty">
-
-        </activity>
-
-        <activity android:name=".aty.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+
+        <activity android:name=".aty.MainActivity">
+
         </activity>
     </application>
 

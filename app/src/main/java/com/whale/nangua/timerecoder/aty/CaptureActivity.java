@@ -71,7 +71,7 @@ public class CaptureActivity extends Activity implements Callback {
     private Button cancelScanButton;
     private ImageView ivQrBg;
     FrameLayout frameLayout;
-
+///
     int ifOpenLight = 0; // 判断是否开启闪光灯
 
     /**

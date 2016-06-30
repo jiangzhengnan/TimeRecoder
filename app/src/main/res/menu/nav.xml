@@ -7,16 +7,16 @@
         <item
             android:id="@+id/nav_a"
             android:checked="true"
-            android:icon="@drawable/ic_favorite_outline_24dp"
-            android:title="书架"
-            />
-        <item
-            android:id="@+id/nav_c"
-            android:icon="@drawable/ic_android_24dp"
-            android:title="读书进度"
+            android:icon="@drawable/fraghome_24dp"
+            android:title="图书沙龙"
             />
         <item
             android:id="@+id/nav_b"
+            android:icon="@drawable/jindufrag_24dp"
+            android:title="读书进度"
+            />
+        <item
+            android:id="@+id/nav_c"
             android:icon="@drawable/ic_qr_24dp"
             android:title="添加书本"
             />
@@ -34,7 +34,7 @@
                 android:title="关于"></item>
             <item
                 android:id="@+id/action_setting"
-                android:icon="@drawable/ic_android_24dp"
+                android:icon="@drawable/shezhi_24dp"
                 android:title="设置"></item>
         </menu>
     </item>

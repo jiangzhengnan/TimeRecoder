@@ -28,7 +28,6 @@ public class ProgressFrag extends Fragment implements SetUpFrag.clearBookes{
     public   ProgressFrag progressFrag = this ;
     ListView progressfrag_lv;
     Frag2Adapter frag2Adapter;
-    ArrayList<String> date;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,16 +41,11 @@ public class ProgressFrag extends Fragment implements SetUpFrag.clearBookes{
     ArrayList<BookInfo> bookInfos;
 
     private void initView(View v) {
-        date = new ArrayList<>();
-        date.add("aa");
          bookInfos =   DBUtils.getInstance(getContext()).queryBooks();
 
-        for (int i = 0;i<bookInfos.size();i++) {
-            date.add(bookInfos.get(i).toString());
-        }
 
         progressfrag_lv = (ListView) v.findViewById(R.id.progressfrag_lv);
-        frag2Adapter = new Frag2Adapter(getContext(),date);
+        frag2Adapter = new Frag2Adapter(getContext(),bookInfos);
         progressfrag_lv.setAdapter(frag2Adapter);
     }
 

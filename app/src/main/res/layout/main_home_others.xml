@@ -46,6 +46,7 @@
                 android:layout_margin="10dp"
                 android:layout_height="80dp"
                 android:scaleType="fitXY"
+                android:src="@drawable/fengjing0"
                  />
             <TextView
                 android:layout_width="match_parent"
@@ -60,6 +61,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <ImageView
+                android:src="@drawable/fengjing1"
                 android:id="@+id/one_img2"
                 android:layout_width="match_parent"
                 android:layout_margin="10dp"
@@ -86,6 +88,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <ImageView
+                android:src="@drawable/fengjing3"
                 android:id="@+id/one_img3"
                 android:layout_width="match_parent"
                 android:layout_margin="10dp"
@@ -105,6 +108,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <ImageView
+                android:src="@drawable/fengjing4"
                 android:id="@+id/one_img4"
                 android:layout_width="match_parent"
                 android:layout_margin="10dp"

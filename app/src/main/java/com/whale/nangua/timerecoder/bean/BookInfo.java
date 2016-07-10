@@ -12,6 +12,16 @@ public class BookInfo {
 
     private String catalog; //章节
 
+    private String alt; // 豆瓣地址
+
+    public String getAlt() {
+        return alt;
+    }
+
+    public void setAlt(String alt) {
+        this.alt = alt;
+    }
+
     public BookInfo() {
 
     }

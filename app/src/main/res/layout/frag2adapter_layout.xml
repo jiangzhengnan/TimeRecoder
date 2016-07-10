@@ -1,10 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="150dp">
-    <TextView
-        android:id="@+id/frag2_tv"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+              android:layout_height="150dp"
+              android:orientation="horizontal">
+    <!-- frag2_tv-->
+    <ImageView
+        android:id="@+id/frag2_imgurl"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:padding="10dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/frag2_title"
+            android:textSize="22sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/frag2_autor"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+
+
+            <ProgressBar
+
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:id="@+id/frag2_jprogressBar"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/frag2_jindu"
+                android:text="0/0页"
+                android:textSize="15sp"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

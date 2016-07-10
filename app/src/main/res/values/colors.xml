@@ -4,7 +4,8 @@
 
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#53C587</color>
+
     <color name="bg_color">#EDEDED</color>
     <color name="contents_text">#ff000000</color>
     <color name="encode_view">#ffffffff</color>

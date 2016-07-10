@@ -187,16 +187,16 @@ public class MainAty extends AppCompatActivity {
             String image = jsonObject.getString("image");
             Log.d("xiaojingyu" , "image:" + image );
 
-         /*  String max = jsonObject.getString("numRaters");
-            Log.d("xiaojingyu" , "numRaters:" + max );*/
+          String max = jsonObject.getString("pages");
+            Log.d("xiaojingyu" , "max:" + max );
 
              //String catalog = jsonObject.getString("catalog");
 
             Log.d("xiaojingyu" , "解析完辣！");
             DBUtils dbUtils =   DBUtils.getInstance(MainAty.this);
-            Log.d("xiaojingyu" , title + summary + author + image + "max" + "catalog");
+            Log.d("xiaojingyu" , title + summary + author + image + max + "catalog");
 
-            dbUtils.insertBooks(title, summary, author, image, "max", "catalog");
+            dbUtils.insertBooks(title, summary, author, image, max, "catalog");
                 Snackbar.make(drawerLayout, "保存" + title + "成功！", Snackbar.LENGTH_SHORT).show();
                 Log.d("xiaojingyu", "保存成功辣");
             //刷新数据

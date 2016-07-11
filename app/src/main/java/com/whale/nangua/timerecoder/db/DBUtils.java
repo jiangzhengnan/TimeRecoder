@@ -45,7 +45,7 @@ public class DBUtils {
      *Books
      * @return
      */
-    public boolean insertBooks(String title,String summary,String author,String image,String max,String catalog) {
+    public boolean insertBooks(String title,String summary,String author,String image,String max,String catalog,String price) {
         ContentValues values = new ContentValues();
         values.put("title", title);
         values.put("summary",summary);
@@ -53,11 +53,12 @@ public class DBUtils {
         values.put("image", image);
         values.put("max", max);
         values.put("catalog", catalog);
+        values.put("price",price);
         long result = db.insert("Books", null, values);
         return true ? false : result != -1;
     }
 
-    ;
+
 
     public ArrayList<BookInfo> queryBooks() {
         ArrayList<BookInfo> bookinfos = new ArrayList<>();
@@ -72,6 +73,8 @@ public class DBUtils {
                 bookInfo.setImage(cursor.getString(cursor.getColumnIndex("image")));
                 bookInfo.setMax(cursor.getString(cursor.getColumnIndex("max")));
                 bookInfo.setCatalog(cursor.getString(cursor.getColumnIndex("catalog")));
+
+                bookInfo.setPrice(cursor.getString(cursor.getColumnIndex("price")));
                 bookinfos.add( bookInfo);
             } while (cursor.moveToNext());
         }
@@ -80,5 +83,21 @@ public class DBUtils {
 
     public void clearBooks() {
           db.execSQL("DELETE FROM BOOKS");
+    }
+
+    public String queryPages(String title) {
+        Cursor cursor = db.query("Books", null, "title" + "=?", new String[]{String.valueOf(title)}, null, null, null);
+        String nowpage = "";
+        if(cursor != null && cursor.moveToFirst()){
+            nowpage = cursor.getString(cursor.getColumnIndex("nowpage"));
+        }
+        return nowpage;
+    }
+
+    public int updatePage(String title,String page) {
+        ContentValues updatedValues = new ContentValues();
+        updatedValues.put("nowpage", page);
+        String where = "max" + "=" + "524";
+        return db.update("Books", updatedValues, where, null);
     }
 }

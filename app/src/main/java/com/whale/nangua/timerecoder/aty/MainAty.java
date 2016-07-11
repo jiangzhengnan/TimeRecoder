@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.whale.nangua.timerecoder.R;
 import com.whale.nangua.timerecoder.db.DBUtils;
+import com.whale.nangua.timerecoder.frag.AboutFrag;
 import com.whale.nangua.timerecoder.frag.ProgressFrag;
 import com.whale.nangua.timerecoder.frag.HomeFrag;
 import com.whale.nangua.timerecoder.frag.SetUpFrag;
@@ -42,6 +43,7 @@ public class MainAty extends AppCompatActivity {
     ProgressFrag progressFrag;
     HomeFrag homeFrag;
     SetUpFrag setUpFrag;
+    AboutFrag aboutFrag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,26 +73,28 @@ public class MainAty extends AppCompatActivity {
         // 设置抽屉中那些菜单项的监听器
         navigationView.setNavigationItemSelectedListener(new NaviListner());
 
-            //实例化
-            progressFrag = new ProgressFrag();
+        //实例化
+        progressFrag = new ProgressFrag();
 
-            homeFrag = new HomeFrag();
+        homeFrag = new HomeFrag();
         setUpFrag = new SetUpFrag();
-
-            //获得Fm
-            //add
-            //remove
-            //replace
-            //hide
-            //show
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.framelayout, homeFrag)
-                    .add(R.id.framelayout, progressFrag)
-                    .add(R.id.framelayout,setUpFrag)
-                    .show(homeFrag)
-                    .hide(progressFrag)
-                    .hide(setUpFrag)
-                    .commit();
+        aboutFrag = new AboutFrag();
+        //获得Fm
+        //add
+        //remove
+        //replace
+        //hide
+        //show
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.framelayout, homeFrag)
+                .add(R.id.framelayout, progressFrag)
+                .add(R.id.framelayout, setUpFrag)
+                .add(R.id.framelayout, aboutFrag)
+                .show(homeFrag)
+                .hide(progressFrag)
+                .hide(setUpFrag)
+                .hide(aboutFrag)
+                .commit();
 
 
     }
@@ -105,10 +109,10 @@ public class MainAty extends AppCompatActivity {
             if (item.getGroupId() == R.id.group_items) {
                 switch (item.getItemId()) {
                     case R.id.nav_a:
-                        getSupportFragmentManager().beginTransaction().show(homeFrag).hide(progressFrag).hide(setUpFrag).commit();
+                        getSupportFragmentManager().beginTransaction().show(homeFrag).hide(progressFrag).hide(setUpFrag).hide(aboutFrag).commit();
                         break;
                     case R.id.nav_b:
-                        getSupportFragmentManager().beginTransaction().show(progressFrag).hide(homeFrag).hide(setUpFrag).commit();
+                        getSupportFragmentManager().beginTransaction().show(progressFrag).hide(homeFrag).hide(setUpFrag).hide(aboutFrag).commit();
                         break;
                     case R.id.nav_c:
                         Intent i = new Intent(MainAty.this, CaptureActivity.class);
@@ -119,10 +123,10 @@ public class MainAty extends AppCompatActivity {
             } else {
                 switch (item.getItemId()) {
                     case R.id.action_about:
-
+                        getSupportFragmentManager().beginTransaction().show(aboutFrag).hide(homeFrag).hide(progressFrag).hide(setUpFrag).commit();
                         break;
                     case R.id.action_setting:
-                        getSupportFragmentManager().beginTransaction().show(setUpFrag).hide(homeFrag).hide(progressFrag).commit();
+                        getSupportFragmentManager().beginTransaction().show(setUpFrag).hide(homeFrag).hide(progressFrag).hide(aboutFrag).commit();
                         break;
                 }
             }
@@ -175,30 +179,32 @@ public class MainAty extends AppCompatActivity {
 
     //解析json数据
     private void pareseJSON(String text) {
-        Log.d("xiaojingyu" , "开始解析" );
+        Log.d("xiaojingyu", "开始解析");
         try {
             JSONObject jsonObject = new JSONObject(text);
             String title = jsonObject.getString("title");
-            Log.d("xiaojingyu" , "title:" + title );
-             String summary = jsonObject.getString("summary");
-            Log.d("xiaojingyu" , "summary:" + summary );
+            Log.d("xiaojingyu", "title:" + title);
+            String summary = jsonObject.getString("summary");
+            Log.d("xiaojingyu", "summary:" + summary);
             String author = jsonObject.getString("author");
-            Log.d("xiaojingyu" , "author:" + author );
+            Log.d("xiaojingyu", "author:" + author);
             String image = jsonObject.getString("image");
-            Log.d("xiaojingyu" , "image:" + image );
+            Log.d("xiaojingyu", "image:" + image);
 
-          String max = jsonObject.getString("pages");
-            Log.d("xiaojingyu" , "max:" + max );
+            String max = jsonObject.getString("pages");
+            Log.d("xiaojingyu", "max:" + max);
 
-             //String catalog = jsonObject.getString("catalog");
+            String price = jsonObject.getString("price");
 
-            Log.d("xiaojingyu" , "解析完辣！");
-            DBUtils dbUtils =   DBUtils.getInstance(MainAty.this);
-            Log.d("xiaojingyu" , title + summary + author + image + max + "catalog");
+            //String catalog = jsonObject.getString("catalog");
 
-            dbUtils.insertBooks(title, summary, author, image, max, "catalog");
-                Snackbar.make(drawerLayout, "保存" + title + "成功！", Snackbar.LENGTH_SHORT).show();
-                Log.d("xiaojingyu", "保存成功辣");
+            Log.d("xiaojingyu", "解析完辣！");
+            DBUtils dbUtils = DBUtils.getInstance(MainAty.this);
+            Log.d("xiaojingyu", title + summary + author + image + max + "catalog");
+
+            dbUtils.insertBooks(title, summary, author, image, max, "catalog",price);
+            Snackbar.make(drawerLayout, "保存" + title + "成功！", Snackbar.LENGTH_SHORT).show();
+            Log.d("xiaojingyu", "保存成功辣");
             //刷新数据
             new ProgressFrag().progressFrag.clearbookes();
         } catch (Exception e) {
@@ -210,6 +216,7 @@ public class MainAty extends AppCompatActivity {
     public class StreamTool {
         /**
          * 从输入流中获取数据
+         *
          * @param inStream 输入流
          * @return
          * @throws Exception

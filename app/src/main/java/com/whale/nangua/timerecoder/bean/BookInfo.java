@@ -1,9 +1,11 @@
 package com.whale.nangua.timerecoder.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by nangua on 2016/6/28.
  */
-public class BookInfo {
+public class BookInfo implements Serializable{
     private String title; //标题
     private String summary;//介绍
     private String author; //作者
@@ -13,6 +15,26 @@ public class BookInfo {
     private String catalog; //章节
 
     private String alt; // 豆瓣地址
+
+    public String getNowpages() {
+        return nowpages;
+    }
+
+    public void setNowpages(String nowpages) {
+        this.nowpages = nowpages;
+    }
+
+    private String nowpages; //当前读到的页数
+
+    private String price;//价格
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public String getAlt() {
         return alt;

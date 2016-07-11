@@ -6,6 +6,8 @@
         <item name="colorPrimary">#53C587</item>
         <item name="colorPrimaryDark">#53C587</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

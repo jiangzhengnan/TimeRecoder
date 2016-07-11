@@ -34,7 +34,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textSize="10sp"
-                        android:text="单元名称"/>
+                        android:text="考研天地"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textSize="10sp"
-                        android:text="单元名称"/>
+                        android:text="三年高考"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -80,7 +80,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textSize="10sp"
-                        android:text="单元名称"/>
+                        android:text="五年模拟"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -103,7 +103,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textSize="10sp"
-                        android:text="单元名称"/>
+                        android:text="儿童乐园"/>
                 </LinearLayout>
             </TableRow>
 
@@ -132,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textSize="10sp"
-                        android:text="单元名称"/>
+                        android:text="科幻世界"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -155,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textSize="10sp"
-                        android:text="单元名称"/>
+                        android:text="言情萌妹"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -178,7 +178,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textSize="10sp"
-                        android:text="单元名称"/>
+                        android:text="日在校园"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -201,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textSize="10sp"
-                        android:text="单元名称"/>
+                        android:text="赛菲罗斯"/>
                 </LinearLayout>
             </TableRow>
 

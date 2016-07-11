@@ -27,13 +27,26 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
-        <TextView
-            android:id="@+id/frag2_autor"
-            android:textSize="15sp"
-            android:gravity="center"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1">
+            <TextView
+                android:textSize="15sp"
+                android:gravity="center"
+                android:id="@+id/frag2_autor"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:descendantFocusability="afterDescendants"
+                android:id="@+id/frag2_setupbtn"
+                android:src="@drawable/setupbtn"
+                android:scaleType="fitCenter"
+                android:layout_width="50dp"
+                android:background="@android:color/transparent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"

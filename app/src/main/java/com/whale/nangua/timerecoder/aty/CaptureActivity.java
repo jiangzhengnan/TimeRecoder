@@ -86,7 +86,6 @@ public class CaptureActivity extends Activity implements Callback {
         CameraManager.init(getApplication());
         viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
         cancelScanButton = (Button) this.findViewById(R.id.btn_cancel_scan);
-
         frameLayout = (FrameLayout) findViewById(R.id.frame);
         FrameLayout.LayoutParams btnParams = new FrameLayout.LayoutParams(dpToPx(getResources(), 50), dpToPx(getResources(), 50));
         btnParams.setMargins(dpToPx(getResources(), 8), dpToPx(getResources(), 8), 0, 0);
@@ -99,15 +98,14 @@ public class CaptureActivity extends Activity implements Callback {
         layoutParams.setMargins(0, (getWindowManager().getDefaultDisplay().getHeight() - 380) / 4, 0, 0);
         ivQrBg.setLayoutParams(layoutParams);
         ivQrBg.setImageResource(R.drawable.qr_back);
-
         frameLayout.addView(ivQrBg);
         hasSurface = false;
         inactivityTimer = new InactivityTimer(this);
     }
 
-
     public int dpToPx(Resources res, int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, res.getDisplayMetrics());
+
     }
 
     @Override

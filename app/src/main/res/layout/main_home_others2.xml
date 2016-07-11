@@ -7,31 +7,33 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="精选专题"
+        android:text="IOS开发"
         android:padding="1dp"
         android:gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:drawablePadding="5dp"
         android:drawableStart="@drawable/tree"/>
     <ImageView
+        android:id="@+id/other2_img1"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
         android:scaleType="fitXY"
-        android:src="@drawable/fengjing4"/>
+        android:src="@drawable/three_img1"
+        />
     <ImageView
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
         android:scaleType="fitXY"
-        android:src="@drawable/fengjing5"/>
+        android:src="@drawable/three_img2"/>
     <ImageView
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
         android:scaleType="fitXY"
-        android:src="@drawable/fengjing6"/>
+        android:src="@drawable/three_img3"/>
 </LinearLayout>

@@ -16,6 +16,8 @@ public class DbHelper extends SQLiteOpenHelper  {
             + "author text, "
             + "image text, "
             + "max text, "
+            + "price text, "
+            + "nowpage text, "
             + "catalog text)";
 
     private Context context;

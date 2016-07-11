@@ -2,6 +2,104 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
+
               android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/themeColor"
+        android:layout_height="50dp">
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_return_24dp"
+            android:background="#00000000"
+            android:id="@+id/imageButton"/>
+        <TextView
+            android:text="作品详情"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageButton"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/bookshow_title"
+                android:text="书名"
+                android:textSize="20sp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/bookshow_autor"
+                android:text="作者"
+                android:textSize="15sp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/bookshow_price"
+
+                android:text="价格"    android:textSize="15sp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/bookshow_pages"
+                android:text="页数"    android:textSize="15sp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/bookshow_img"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <Button
+        android:text="详情"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <TextView
+        android:text="简介："
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+         >
+    <TextView
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:id="@+id/bookshow_summary"
+        android:gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </ScrollView>
 </LinearLayout>

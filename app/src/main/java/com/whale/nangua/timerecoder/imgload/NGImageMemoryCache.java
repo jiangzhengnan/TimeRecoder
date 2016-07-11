@@ -21,6 +21,7 @@ public class NGImageMemoryCache {
 
     /**
      * 初始化
+     * 淘汰最老的键
      */
     protected NGImageMemoryCache() {
         //使用LinkedHashMap保证有序读取

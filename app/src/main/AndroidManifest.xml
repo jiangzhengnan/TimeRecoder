@@ -24,11 +24,9 @@
         </activity>
 
         <activity android:name=".aty.TestAty">
-
-
-
         </activity>
-
+        <activity android:name=".aty.BookShowAty"></activity>
+        <activity android:name=".aty.AboutAty"></activity>
     </application>
 
 </manifest>

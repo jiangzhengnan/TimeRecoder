@@ -109,6 +109,7 @@ public class NGImageFileCache {
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 String fileDirectory = FileUtils.getImgDirectory();
                 File dir = new File(fileDirectory);
+                //如果文件夹不存在
                 if (!dir.exists()) {
                     dir.mkdirs();
                 }

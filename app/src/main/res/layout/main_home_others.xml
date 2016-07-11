@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="儿童图书"
+            android:text="前端开发"
             android:paddingLeft="10dp"
             android:drawableStart="@drawable/thumb"
             android:drawablePadding="10dp"/>
@@ -46,13 +46,13 @@
                 android:layout_margin="10dp"
                 android:layout_height="80dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/fengjing0"
+                android:src="@drawable/one_img1"
                  />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:gravity="center_horizontal"
-                android:text="测试填充数据"
+                android:text="前端技术入门"
                 android:layout_weight="1"/>
         </LinearLayout>
         <LinearLayout
@@ -61,7 +61,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <ImageView
-                android:src="@drawable/fengjing1"
+                android:src="@drawable/one_img2"
                 android:id="@+id/one_img2"
                 android:layout_width="match_parent"
                 android:layout_margin="10dp"
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:gravity="center_horizontal"
-                android:text="测试填充数据"
+                android:text="前端与后台交互进阶"
                 android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
@@ -88,7 +88,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <ImageView
-                android:src="@drawable/fengjing3"
+                android:src="@drawable/one_img3"
                 android:id="@+id/one_img3"
                 android:layout_width="match_parent"
                 android:layout_margin="10dp"
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:gravity="center_horizontal"
-                android:text="测试填充数据"
+                android:text="中级前端进阶"
                 android:layout_weight="1"/>
         </LinearLayout>
         <LinearLayout
@@ -108,7 +108,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <ImageView
-                android:src="@drawable/fengjing4"
+                android:src="@drawable/one_img4"
                 android:id="@+id/one_img4"
                 android:layout_width="match_parent"
                 android:layout_margin="10dp"
@@ -119,7 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:gravity="center_horizontal"
-                android:text="测试填充数据"
+                android:text="语言、代码、数据结构"
                 android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>

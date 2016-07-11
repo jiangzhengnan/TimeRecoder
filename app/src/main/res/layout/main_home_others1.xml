@@ -17,15 +17,8 @@
             android:drawableStart="@drawable/tree"
             android:gravity="center_vertical"
             android:padding="1dp"
-            android:text="精选专题" />
+            android:text="Android开发" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="160dp"
-            android:drawableEnd="@drawable/ic_keyboard_arrow_right_24dp"
-            android:gravity="center_vertical"
-            android:text="精选专题跳转" />
     </LinearLayout>
 
     <android.support.v7.widget.GridLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -45,14 +38,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@drawable/fengjing7"
+                android:src="@drawable/two_img1"
                 android:scaleType="fitXY"
                 style="@style/Base.Widget.AppCompat.Button.Borderless" />
             <TextView
                 android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:text="还是填充测试数据"
+                android:text="Android基础入门"
+                android:gravity="center_horizontal"
                  />
         </LinearLayout>
 
@@ -66,14 +60,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@drawable/fengjing8"
+                android:src="@drawable/two_img2"
                 android:scaleType="fitXY"
                 style="@style/Base.Widget.AppCompat.Button.Borderless" />
             <TextView
                 android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:text="还是填充测试数据"
+                android:text="Android设计模式"
+                android:gravity="center_horizontal"
                 />
         </LinearLayout>
 
@@ -87,14 +82,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@drawable/fengjing9"
+                android:src="@drawable/two_img3"
                 android:scaleType="fitXY"
                 style="@style/Base.Widget.AppCompat.Button.Borderless" />
             <TextView
                 android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:text="还是填充测试数据"
+                android:gravity="center_horizontal"
+                android:text="数据结构"
                 />
         </LinearLayout>
 
@@ -108,14 +104,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@drawable/fengjing10"
+                android:src="@drawable/two_img4"
                 android:scaleType="fitXY"
                 style="@style/Base.Widget.AppCompat.Button.Borderless" />
             <TextView
                 android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:text="还是填充测试数据"
+                android:text="Android高级开发"
+                android:gravity="center_horizontal"
                 />
         </LinearLayout>
 
@@ -129,14 +126,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@drawable/fengjing11"
+                android:src="@drawable/two_img5"
                 android:scaleType="fitXY"
                 style="@style/Base.Widget.AppCompat.Button.Borderless" />
             <TextView
                 android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:text="还是填充测试数据"
+                android:text="Android艺术探索"
+                android:gravity="center_horizontal"
                 />
         </LinearLayout>
 

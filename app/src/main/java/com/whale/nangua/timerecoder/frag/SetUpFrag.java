@@ -44,8 +44,8 @@ public class SetUpFrag extends Fragment {
         return v;
     }
 
-    public interface  clearBookes
+    public interface  refreshbookes
     {
-        void clearbookes();
+        void refreshbookes();
     }
 }

@@ -92,6 +92,12 @@ public class CaptureActivity extends Activity implements Callback {
         Button button = new Button(this);
         button.setBackgroundResource(R.drawable.btn_back);
         button.setLayoutParams(btnParams);
+        button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         frameLayout.addView(button);
         ivQrBg = new ImageView(this);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(380, 380, Gravity.CENTER_HORIZONTAL);

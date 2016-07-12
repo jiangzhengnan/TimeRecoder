@@ -16,17 +16,19 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".aty.CaptureActivity"></activity>
         <activity android:name=".aty.MainAty">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-
         </activity>
 
         <activity android:name=".aty.TestAty">
         </activity>
         <activity android:name=".aty.BookShowAty"></activity>
         <activity android:name=".aty.AboutAty"></activity>
+        <activity android:name=".aty.InitActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

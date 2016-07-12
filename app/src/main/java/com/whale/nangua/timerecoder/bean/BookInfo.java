@@ -6,6 +6,16 @@ import java.io.Serializable;
  * Created by nangua on 2016/6/28.
  */
 public class BookInfo implements Serializable{
+    private String id; //id
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     private String title; //标题
     private String summary;//介绍
     private String author; //作者

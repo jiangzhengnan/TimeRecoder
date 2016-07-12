@@ -177,7 +177,6 @@ public class NGDownloadImage {
                 final NGDownloadImageMode imageMode = (NGDownloadImageMode) object;
                 imageMode.getCallback().imageLoaded(imageMode.getParent(), img,
                         (Bitmap) msg.obj, imageMode);
-
                 if (taskMap != null) {
                     taskMap.remove(Integer.toString(img.hashCode()));
                 }

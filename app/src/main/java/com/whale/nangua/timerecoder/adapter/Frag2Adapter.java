@@ -39,6 +39,11 @@ public class Frag2Adapter extends BaseAdapter {
         this.date = date;
     }
 
+    public void notifydate(ArrayList<BookInfo> date) {
+        this.date = date;
+        this.notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         return date.size();
@@ -60,25 +65,23 @@ public class Frag2Adapter extends BaseAdapter {
         View v = LayoutInflater.from(context).inflate(R.layout.frag2adapter_layout, null);
         TextView title = (TextView) v.findViewById(R.id.frag2_title);
         TextView autor = (TextView) v.findViewById(R.id.frag2_autor);
-        TextView jindu = (TextView) v.findViewById(R.id.frag2_jindu);
+        final TextView jindu = (TextView) v.findViewById(R.id.frag2_jindu);
         ImageView frag2_imgurl = (ImageView) v.findViewById(R.id.frag2_imgurl);
-        ProgressBar frag2_jprogressBar = (ProgressBar) v.findViewById(R.id.frag2_jprogressBar);
+        final ProgressBar frag2_jprogressBar = (ProgressBar) v.findViewById(R.id.frag2_jprogressBar);
         ImageView frag2_setupbtn = (ImageView) v.findViewById(R.id.frag2_setupbtn);
 
-        jindu.setText("0/" + bookInfo.getMax() + "页");
         title.setText(bookInfo.getTitle());
         autor.setText(bookInfo.getAuthor());
         frag2_jprogressBar.setMax(Integer.parseInt(bookInfo.getMax()));
-
+        jindu.setText(bookInfo.getNowpages() + "/" + bookInfo.getMax() + "页");
         bookInfo.setNowpages(DBUtils.getInstance(context).queryPages(bookInfo.getTitle()));
         if ((bookInfo.getNowpages() != null)&&!(bookInfo.getNowpages().equals(""))) {
             String p = bookInfo.getNowpages();
-            Log.d("nng",p);
             frag2_jprogressBar.setProgress(Integer.parseInt(p));//得到当前页数
         }
 
         NGImageloadHelper.displayImage(frag2_imgurl, bookInfo.getImage());
-
+        Log.d("xiaojingyu", "数据库：" +bookInfo.getNowpages());
         //updatePage
         frag2_setupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,9 +91,8 @@ public class Frag2Adapter extends BaseAdapter {
                 animator.setDuration(300);
                 animator.start();
                 //选择
-                View view = LayoutInflater.from(context).inflate(R.layout.frag2_dialog,null);
+                final View view = LayoutInflater.from(context).inflate(R.layout.frag2_dialog,null);
 
-                final EditText editText = (EditText)view.findViewById(R.id.frag2_dialog_et);
 
                 final AlertDialog mydialog= new AlertDialog.Builder(context).setView(view).create();
                 mydialog.show();
@@ -100,16 +102,22 @@ public class Frag2Adapter extends BaseAdapter {
                         .setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                EditText editText = (EditText) mydialog.getWindow().findViewById(R.id.frag2_dialog_et);
+                                        //(EditText)view.findViewById(R.id.frag2_dialog_et);
+                                Log.d("xiaojingyu","输入的数字："+editText.getText().toString());
+                               Log.d("xiaojingyu", "输入的id：" + bookInfo.getId().toString());
 
-                                if (DBUtils.getInstance(context).updatePage(bookInfo.getTitle(),editText.getText().toString())!=-1) {
-                                    Snackbar.make(v,"更新成功",Snackbar.LENGTH_SHORT).show();
-                                } else {
-                                    Snackbar.make(v,"更新失败",Snackbar.LENGTH_SHORT).show();
-                                }
 
+
+                                DBUtils.getInstance(context).updatePage(bookInfo.getId(), editText.getText().toString());
+                                    Snackbar.make(v, "更新成功", Snackbar.LENGTH_SHORT).show();
+                                frag2_jprogressBar.setProgress(Integer.parseInt(editText.getText().toString()));
+                                jindu.setText(bookInfo.getNowpages() + "/" + bookInfo.getMax() + "页");
+                                notifyDataSetChanged();
+                                mydialog.dismiss();
                             }
                         });
-                mydialog.getWindow()
+                        mydialog.getWindow()
                         .findViewById(R.id.frag2_dialog_btn2)
                         .setOnClickListener(new View.OnClickListener() {
                             @Override

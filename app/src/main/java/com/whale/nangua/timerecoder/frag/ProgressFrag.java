@@ -2,6 +2,7 @@ package com.whale.nangua.timerecoder.frag;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,7 +28,7 @@ import butterknife.ButterKnife;
 /**
  * Created by nangua on 2016/5/26.
  */
-public class ProgressFrag extends Fragment implements SetUpFrag.clearBookes {
+public class ProgressFrag extends Fragment implements SetUpFrag.refreshbookes {
 
     public ProgressFrag progressFrag = this;
     ListView progressfrag_lv;
@@ -62,28 +63,32 @@ public class ProgressFrag extends Fragment implements SetUpFrag.clearBookes {
     }
 
     @Override
-    public void clearbookes() {
-        Log.d("nanguayu","ProgressFrag里的刷新方法被执行到了~" + String.valueOf(frag2Adapter==null));
+    public void refreshbookes() {
+        DBUtils db =  DBUtils.getInstance(getContext()) ;
+        bookInfos = db.queryBooks();
 
-        if (frag2Adapter!=null) {
-            frag2Adapter.notifyDataSetChanged();
-        } else {
-            bookInfos = DBUtils.getInstance(getContext()).queryBooks();
-            frag2Adapter = new Frag2Adapter(getContext(), bookInfos);
-            progressfrag_lv.setAdapter(frag2Adapter);
-            frag2Adapter.notifyDataSetChanged();
-        }
+        frag2Adapter.notifydate(bookInfos);
+        progressfrag_lv.setAdapter(frag2Adapter);
+        progressfrag_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getContext(), BookShowAty.class);
+                i.putExtra("bookinfo", bookInfos.get(position));
+                startActivity(i);
+            }
+        });
+
+        fragRefreshCallback.refreshfrag(ProgressFrag.this);
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("ohaha", "onPause");
+    public void setRefreshCallback(FragRefresh fragRefreshCallback) {
+        this.fragRefreshCallback = fragRefreshCallback;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("ohaha","onresume");
+    public FragRefresh fragRefreshCallback;
+
+    public interface FragRefresh{
+        public void refreshfrag(ProgressFrag fragment );
     }
+
 }

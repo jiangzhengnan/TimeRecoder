@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -32,7 +33,7 @@ import butterknife.ButterKnife;
 /**
  * Created by nangua on 2016/6/27.
  */
-public class MainAty extends AppCompatActivity {
+public class MainAty extends AppCompatActivity implements ProgressFrag.FragRefresh {
     Toolbar toolbar;
     ActionBar actionBar;
     DrawerLayout drawerLayout;
@@ -40,7 +41,7 @@ public class MainAty extends AppCompatActivity {
     NavigationView navigationView;
 
 
-    ProgressFrag progressFrag;
+    static ProgressFrag progressFrag;
     HomeFrag homeFrag;
     SetUpFrag setUpFrag;
     AboutFrag aboutFrag;
@@ -79,12 +80,6 @@ public class MainAty extends AppCompatActivity {
         homeFrag = new HomeFrag();
         setUpFrag = new SetUpFrag();
         aboutFrag = new AboutFrag();
-        //获得Fm
-        //add
-        //remove
-        //replace
-        //hide
-        //show
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.framelayout, homeFrag)
                 .add(R.id.framelayout, progressFrag)
@@ -95,8 +90,12 @@ public class MainAty extends AppCompatActivity {
                 .hide(setUpFrag)
                 .hide(aboutFrag)
                 .commit();
+    }
 
-
+    @Override
+    public void refreshfrag(ProgressFrag fragment) {
+        getSupportFragmentManager().beginTransaction().remove(progressFrag).add(R.id.framelayout, fragment);
+        progressFrag = fragment;
     }
 
     /**
@@ -112,6 +111,8 @@ public class MainAty extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().show(homeFrag).hide(progressFrag).hide(setUpFrag).hide(aboutFrag).commit();
                         break;
                     case R.id.nav_b:
+                        progressFrag.setRefreshCallback(MainAty.this);
+                        progressFrag.refreshbookes();
                         getSupportFragmentManager().beginTransaction().show(progressFrag).hide(homeFrag).hide(setUpFrag).hide(aboutFrag).commit();
                         break;
                     case R.id.nav_c:
@@ -198,15 +199,18 @@ public class MainAty extends AppCompatActivity {
 
             //String catalog = jsonObject.getString("catalog");
 
+            String alt = jsonObject.getString("alt");
+            String id = jsonObject.getString("id");
             Log.d("xiaojingyu", "解析完辣！");
             DBUtils dbUtils = DBUtils.getInstance(MainAty.this);
-            Log.d("xiaojingyu", title + summary + author + image + max + "catalog");
 
-            dbUtils.insertBooks(title, summary, author, image, max, "catalog",price);
+            dbUtils.insertBooks(id,title, summary, author, image, max, "catalog", price,alt);
             Snackbar.make(drawerLayout, "保存" + title + "成功！", Snackbar.LENGTH_SHORT).show();
             Log.d("xiaojingyu", "保存成功辣");
             //刷新数据
-            new ProgressFrag().progressFrag.clearbookes();
+            progressFrag.setRefreshCallback(MainAty.this);
+            progressFrag.refreshbookes();
+            getSupportFragmentManager().beginTransaction().show(homeFrag).hide(progressFrag).hide(setUpFrag).hide(aboutFrag).commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -231,5 +235,18 @@ public class MainAty extends AppCompatActivity {
             inStream.close();
             return outStream.toByteArray();
         }
+    }
+
+    long time= 0;
+
+    @Override
+    public void onBackPressed() {
+        long time2 = System.currentTimeMillis();
+        if ((time2 - time) > 2000) {
+            Toast.makeText(MainAty.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+        } else {
+            super.onBackPressed();
+        }
+        time = time2;
     }
 }

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.whale.nangua.timerecoder.bean.BookInfo;
 
@@ -45,8 +46,9 @@ public class DBUtils {
      *Books
      * @return
      */
-    public boolean insertBooks(String title,String summary,String author,String image,String max,String catalog,String price) {
+    public boolean insertBooks(String id,String title,String summary,String author,String image,String max,String catalog,String price,String alt) {
         ContentValues values = new ContentValues();
+        values.put("bookid",id);
         values.put("title", title);
         values.put("summary",summary);
         values.put("author", author);
@@ -54,6 +56,7 @@ public class DBUtils {
         values.put("max", max);
         values.put("catalog", catalog);
         values.put("price",price);
+        values.put("alt",alt);
         long result = db.insert("Books", null, values);
         return true ? false : result != -1;
     }
@@ -73,8 +76,9 @@ public class DBUtils {
                 bookInfo.setImage(cursor.getString(cursor.getColumnIndex("image")));
                 bookInfo.setMax(cursor.getString(cursor.getColumnIndex("max")));
                 bookInfo.setCatalog(cursor.getString(cursor.getColumnIndex("catalog")));
-
+                bookInfo.setAlt(cursor.getString(cursor.getColumnIndex("alt")));
                 bookInfo.setPrice(cursor.getString(cursor.getColumnIndex("price")));
+                bookInfo.setId(cursor.getString(cursor.getColumnIndex("bookid")));
                 bookinfos.add( bookInfo);
             } while (cursor.moveToNext());
         }
@@ -94,10 +98,20 @@ public class DBUtils {
         return nowpage;
     }
 
-    public int updatePage(String title,String page) {
-        ContentValues updatedValues = new ContentValues();
-        updatedValues.put("nowpage", page);
-        String where = "max" + "=" + "524";
-        return db.update("Books", updatedValues, where, null);
+    /**
+     * 插入页码到数据库
+     * @param id
+     * @param page
+     * @return
+     * UPDATE table_name
+    SET column1 = value1, column2 = value2...., columnN = valueN
+    WHERE [condition];
+     */
+    public void updatePage(String bookid, String page) {
+        Log.d("xiaojingyu", "updatePage：传入的page：" + page);
+        ContentValues values = new ContentValues();
+        values.put("nowpage", page );//key为字段名，value为值
+        db.update("Books", values, "bookid=?", new String[]{bookid});
     }
+
 }
